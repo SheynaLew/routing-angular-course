@@ -17,7 +17,7 @@
       <!-- routerLink knows the path you're on, so you get an error if you use something like "/servers" because it knows you're already on "home/servers" and tries to add "/servers" to the end of this. To get around that, leave off the "/" so it is only appended to the home route, or use "./" which does the same, or use "../" which takes you back a level and appends "/serves" to that level -->
     <!-- <button class="btn btn-primary" (click)="onReload()">Reload Page</button> -->
       <!-- navigate method does not know what path you're on so you won't get an error as it's not loading relative to the current route -->
-    <app-edit-server></app-edit-server>
+    <!-- <app-edit-server></app-edit-server>
     <hr> -->
     <router-outlet></router-outlet>
     <!-- <app-server></app-server> -->
