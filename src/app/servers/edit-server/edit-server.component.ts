@@ -16,7 +16,7 @@ export class EditServerComponent implements OnInit {
   constructor(private serversService: ServersService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.queryParams.subscribe();
+    this.route.queryParams.subscribe(); //using subscribe on queryParams means they will be updated reactively. If we use snapshot it will only load the inital state. Same for fragment
     this.route.fragment.subscribe();
     this.server = this.serversService.getServer(1);
     this.serverName = this.server.name;
