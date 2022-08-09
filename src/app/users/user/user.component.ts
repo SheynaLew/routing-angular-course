@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class UserComponent implements OnInit, OnDestroy {
   user: {id: number, name: string};
-  paramsSubscription: Subscription;
+  paramsSubscription: Subscription;  //Add this variable to allow us to unsubscribe when the component is destroyed
 
   constructor(private route: ActivatedRoute) { }
 
@@ -35,6 +35,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.paramsSubscription.unsubscribe();
+    // Need to add unsubscribe to onDestroy as subscriptions live on in memory. So when component is destroyed, it will be unsubscribed.
   }
 
 }
