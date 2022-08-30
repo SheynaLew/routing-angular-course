@@ -16,17 +16,23 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const appRoutes: Routes = [
-  {path: "", component: HomeComponent},
+  { path: "", component: HomeComponent },
 
-  {path: "users", component: UsersComponent, children: [
-    {path: ":id/:name", component: UserComponent},
-  ]},
+  {
+    path: "users", component: UsersComponent, children: [
+      { path: ":id/:name", component: UserComponent },
+    ]
+  },
 
-  {path: "servers", component: ServersComponent, children: [
-    {path: ":id", component: ServerComponent},
-    {path: ":id/edit", component: EditServerComponent}
-  ]},
-
+  {
+    path: "servers", component: ServersComponent, children: [
+      { path: ":id", component: ServerComponent },
+      { path: ":id/edit", component: EditServerComponent }
+    ]
+  },
+  { path: "not-found", component: PageNotFoundComponent },
+  { path: "**", redirectTo: '/not-found' }
+  // ** is a wildcard which captures any routes not specified above. As such, it needs to be the last route in the set up or anything listed below it will be sent to the component/redirect route you've assigned to it.
 ]
 
 @NgModule({
