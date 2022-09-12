@@ -26,7 +26,9 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
       }
     ); // using subscribe on queryParams means they will be updated reactively. If we use snapshot it will only load the inital state. Same for fragment
     this.route.fragment.subscribe();
-    this.server = this.serversService.getServer(1);
+    const id = +this.route.snapshot.params['id'];
+    // Subscribe route params to update the id if params change
+    this.server = this.serversService.getServer(id);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
   }
