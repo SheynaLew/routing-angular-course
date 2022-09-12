@@ -5,7 +5,7 @@ export class AuthService {
     const promise = new Promise(
       (resolve, reject) => {
         setTimeout(() => {
-          resolve(this.logIn);
+          resolve(this.loggedIn);
         }, 800);
       }
     );
