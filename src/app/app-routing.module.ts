@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
@@ -25,8 +26,11 @@ const appRoutes: Routes = [
       { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard] }
     ]
   },
-  { path: 'not-found', component: PageNotFoundComponent },
+  // { path: 'not-found', component: PageNotFoundComponent },
+  { path: 'not-found', component: ErrorPageComponent, data: { message: 'Page not found!' } },
   { path: '**', redirectTo: '/not-found', pathMatch: 'full' }
+
+
   // ** is a wildcard which captures any routes not specified above. As such, it needs to be the last route in the set up or anything listed below it will be sent to the component/redirect route you've assigned to it.
   // In our example, we didn't encounter any issues when we tried to redirect the user. But that's not always the case when adding redirections. By default, Angular matches paths by prefix. That means, that the following route will match both /recipes  and just /
   // { path: '', redirectTo: '/somewhere-else' }
