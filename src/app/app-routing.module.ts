@@ -41,6 +41,8 @@ const appRoutes: Routes = [
 ]
 
 @NgModule({
+  // imports: [RouterModule.forRoot(appRoutes, { useHash: true })],
+  //Use this if you've deployed your app and routing for 404 doesn't work on some browsers.
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
